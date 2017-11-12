@@ -10,9 +10,6 @@ using System.Web.WebPages.Razor;
 
 namespace RazorHtmlMinifier.Mvc5
 {
-    /// <summary>
-    /// Simple minification of razor pages
-    /// </summary>
     public class MinifyingMvcWebRazorHostFactory : MvcWebRazorHostFactory
     {
         public override WebPageRazorHost CreateHost(string virtualPath, string physicalPath)

@@ -13,8 +13,8 @@
     <PackageLicenseUrl>https://raw.githubusercontent.com/tompazourek/RazorHtmlMinifier.Mvc5/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/tompazourek/RazorHtmlMinifier.Mvc5</PackageProjectUrl>
     <RepositoryUrl>https://github.com/tompazourek/RazorHtmlMinifier.Mvc5</RepositoryUrl>
-    <PackageTags>TODO</PackageTags>
-    <Description>TODO</Description>
+    <PackageTags>asp-net asp-net-mvc asp-net-mvc5 c-sharp cshtml html html-minification html-minifier minification minifier optimization razor razor-engine</PackageTags>
+    <Description>Trivial compile-time Razor HTML Minifier for ASP.NET MVC 5.</Description>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>https://github.com/tompazourek/RazorHtmlMinifier.Mvc5/releases</PackageReleaseNotes>
     <PackageId>RazorHtmlMinifier.Mvc5</PackageId>
