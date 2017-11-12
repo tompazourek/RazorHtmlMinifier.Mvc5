@@ -18,7 +18,7 @@ The library is also [published on NuGet.org](https://www.nuget.org/packages/Razo
 PM> Install-Package RazorHtmlMinifier.Mvc5
 ```
 
-<sup>RazorHtmlMinifier.Mvc5 is is built as for .NET v4.5 with a dependency on ASP.NET MVC 5.2.3.</sup>
+<sup>RazorHtmlMinifier.Mvc5 is built for .NET v4.5 with a dependency on ASP.NET MVC 5.2.3.</sup>
 
 ### Configuration
 
