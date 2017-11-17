@@ -38,16 +38,16 @@ namespace RazorHtmlMinifier.Mvc5
             }
         }
 
-        internal class MinifyingCSharpRazorCodeGenerator : CSharpRazorCodeGenerator
+        private class MinifyingCSharpRazorCodeGenerator : CSharpRazorCodeGenerator
         {
             public MinifyingCSharpRazorCodeGenerator(string className, string rootNamespaceName, string sourceFileName, RazorEngineHost host) : base(className, rootNamespaceName, sourceFileName, host)
             {
             }
 
-            private static readonly Regex MinifyingRegexLineBreak = new Regex(@"\s*[\n\r]+\s*", RegexOptions.Compiled | RegexOptions.Compiled | RegexOptions.CultureInvariant);
+            private static readonly Regex MinifyingRegexLineBreak = new Regex(@"\s*[\n\r]+\s*", RegexOptions.Compiled | RegexOptions.CultureInvariant);
             private static readonly Regex MinifyingRegexInline = new Regex(@"\s{2,}", RegexOptions.Compiled | RegexOptions.CultureInvariant);
 
-            public string Minify(string content)
+            private static string Minify(string content)
             {
                 content = MinifyingRegexLineBreak.Replace(content, "\n");
                 content = MinifyingRegexInline.Replace(content, " ");
