@@ -1,4 +1,4 @@
-RazorHtmlMinifier.Mvc5
+![RazorHtmlMinifier.Mvc5 logo](https://raw.githubusercontent.com/tompazourek/RazorHtmlMinifier.Mvc5/master/assets/logo_32.png) RazorHtmlMinifier.Mvc5
 ======================
 
 [![Build status](https://img.shields.io/appveyor/ci/tompazourek/razorhtmlminifier-mvc5.svg)](https://ci.appveyor.com/project/tompazourek/razorhtmlminifier-mvc5)

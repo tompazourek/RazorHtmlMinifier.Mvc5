@@ -18,6 +18,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>https://github.com/tompazourek/RazorHtmlMinifier.Mvc5/releases</PackageReleaseNotes>
     <PackageId>RazorHtmlMinifier.Mvc5</PackageId>
+    <PackageIconUrl>https://raw.githubusercontent.com/tompazourek/RazorHtmlMinifier.Mvc5/master/assets/logo_64.png</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>

@@ -19,6 +19,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{8703113A-C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorHtmlMinifier.Sample", "src\RazorHtmlMinifier.Sample\RazorHtmlMinifier.Sample.csproj", "{89399B93-6A51-4E98-88F7-638091DEA337}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{1BAE8475-A30D-4028-8843-CA9A9D92E76E}"
+	ProjectSection(SolutionItems) = preProject
+		assets\logo_128.png = assets\logo_128.png
+		assets\logo_256.png = assets\logo_256.png
+		assets\logo_32.png = assets\logo_32.png
+		assets\logo_320.png = assets\logo_320.png
+		assets\logo_64.png = assets\logo_64.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
