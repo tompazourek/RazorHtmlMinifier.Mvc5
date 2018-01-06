@@ -32,7 +32,7 @@ Find the **Web.config** with your Razor configuration (by default it's in `Views
 In order to start minifying, replace it with (after the NuGet package is installed):
 
 ```xml
-<host factoryType="RazorHtmlMinifier.Mvc5.MinifyingMvcWebRazorHostFactory, RazorHtmlMinifier.Mvc5, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+<host factoryType="RazorHtmlMinifier.Mvc5.MinifyingMvcWebRazorHostFactory, RazorHtmlMinifier.Mvc5, Version=1.1.0.0, Culture=neutral, PublicKeyToken=a517a17e203fcde4" />
 ```
 
 Then rebuild your solution, which should also restart the app.
