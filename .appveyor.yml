@@ -7,8 +7,8 @@ before_build:
   - dotnet restore
 
 environment:
-  base_version: '1.0.1'
-  version_suffix: ''
+  base_version: '1.1.0'
+  version_suffix: '-alpha1'
 
 version: $(base_version).{build}$(version_suffix)
 
