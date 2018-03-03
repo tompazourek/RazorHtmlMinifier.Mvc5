@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFrameworks>net45</TargetFrameworks>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>0.0.1</Version>
     <AssemblyVersion>0.0.0.1</AssemblyVersion>
     <FileVersion>0.0.0.1</FileVersion>
@@ -21,6 +20,12 @@
     <PackageIconUrl>https://raw.githubusercontent.com/tompazourek/RazorHtmlMinifier.Mvc5/master/assets/logo_64.png</PackageIconUrl>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>PublicStrongNameKey.snk</AssemblyOriginatorKeyFile>
+    <Deterministic>True</Deterministic>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <PathMap>$(MSBuildProjectDirectory)=/</PathMap>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
