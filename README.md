@@ -32,7 +32,7 @@ Find the **Web.config** with your Razor configuration (by default it's in `Views
 In order to start minifying, replace it with (after the NuGet package is installed):
 
 ```xml
-<host factoryType="RazorHtmlMinifier.Mvc5.MinifyingMvcWebRazorHostFactory, RazorHtmlMinifier.Mvc5, Version=1.1.0.0, Culture=neutral, PublicKeyToken=a517a17e203fcde4" />
+<host factoryType="RazorHtmlMinifier.Mvc5.MinifyingMvcWebRazorHostFactory, RazorHtmlMinifier.Mvc5, Version=1.2.0.0, Culture=neutral, PublicKeyToken=a517a17e203fcde4" />
 ```
 
 Then rebuild your solution, which should also restart the app.
@@ -45,10 +45,11 @@ The minifier processes the code generated during Razor compilation. Because it r
 
 The entire source code is just a [single file](https://github.com/tompazourek/RazorHtmlMinifier.Mvc5/blob/master/src/RazorHtmlMinifier.Mvc5/MinifyingMvcWebRazorHostFactory.cs), feel free to view it.
 
-The minification applied is very trivial as you can [see here](https://github.com/tompazourek/RazorHtmlMinifier.Mvc5/blob/master/src/RazorHtmlMinifier.Mvc5/MinifyingMvcWebRazorHostFactory.cs#L47-L55). It basically:
+The minification applied is very trivial. It basically:
 
-- replaces multiple white-space characters next to each other with a single space;
-- replaces multiple white-space characters containing line breaks with a single line break.
+- replaces any amount of whitespace characters with a single space;
+- replaces any newline character with just the line feed character (`\n`);
+- if there's a sequence of whitespace characters and newlines, it only takes the first in the sequence.
 
 The minification process is deliberately trivial so that its behaviour would be easy to understand and expect.
 
@@ -65,7 +66,7 @@ When you change the Razor factory, you might experience IntelliSense issues in V
 If you want to add the assembly to GAC, you'll need to do the following:
 
 - Open `Developer Command Prompt for VS 2017` (you'll find it in Start menu) **as an Administrator**.
-- Navigate to the folder of the NuGet package: `cd "C:\PATH_TO_YOUR_SOLUTION\packages\RazorHtmlMinifier.Mvc5.1.1.0\lib\net45"`
+- Navigate to the folder of the NuGet package: `cd "C:\PATH_TO_YOUR_SOLUTION\packages\RazorHtmlMinifier.Mvc5.1.2.0\lib\net45"`
 - Install it to GAC: `gacutil /i RazorHtmlMinifier.Mvc5.dll` (it should respond `Assembly successfully added to the cache`)
 - Restart VS 2017 (and maybe also clear any ReSharper caches if you're using that)
 
@@ -77,5 +78,3 @@ There are also other alternative solutions:
 - Set the host factory in the Web.config file in runtime, e.g. in `Global.asax`. You'd have to use the `WebConfigurationManager` API to modify the Web.config during runtime.
 
 However, I wouldn't recommend either of those (I also haven't tried them), as they feel more like a hack, and might cause more issues if you'd be doing stuff like precompilation of the views. Adding the assembly to GAC is probably the easiest, it's still annoying that VS requires that though...)
-
-Another alternative solution I found worked, is just not to use the NuGet package, and just copy the source code to some project (it's MIT licensed). The entire factory is [just a single file](https://github.com/tompazourek/RazorHtmlMinifier.Mvc5/blob/master/src/RazorHtmlMinifier.Mvc5/MinifyingMvcWebRazorHostFactory.cs). And then you can reference a local project containing the source code like [shown in the sample project included in the repo](https://github.com/tompazourek/RazorHtmlMinifier.Mvc5/blob/master/src/RazorHtmlMinifier.Sample/Views/Web.config#L13).
