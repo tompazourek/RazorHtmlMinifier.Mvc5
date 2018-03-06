@@ -45,13 +45,13 @@ The minifier processes the code generated during Razor compilation. Because it r
 
 The entire source code is just a [single file](https://github.com/tompazourek/RazorHtmlMinifier.Mvc5/blob/master/src/RazorHtmlMinifier.Mvc5/MinifyingMvcWebRazorHostFactory.cs), feel free to view it.
 
-The minification applied is very trivial. It basically:
+The minification algorithm is fairly trivial. It basically:
 
 - replaces any amount of whitespace characters with a single space;
-- replaces any newline character with just the line feed character (`\n`);
-- if there's a sequence of whitespace characters and newlines, it only takes the first in the sequence.
+- replaces any line breaks with just the line feed character (`\n`);
+- if there's a sequence of whitespace characters and line breaks, it only takes the first in the sequence.
 
-The minification process is deliberately trivial so that its behaviour would be easy to understand and expect.
+The minification process is deliberately trivial so that it would be easy to understand and expect.
 
 **CAUTION! The minification is not context-sensitive, and it doesn't have any special handling of `<pre>` tags or similar. If you use `<pre>` tags or have any other significant white-space in your HTML, you shouldn't use this library.**
 
@@ -61,16 +61,18 @@ The code is inspired by [Meleze.Web](https://github.com/meleze/Meleze.Web) (an o
 Resolving IntelliSense issues
 -----------------------------
 
-When you change the Razor factory, you might experience IntelliSense issues in Visual Studio. I've investigated this it looks like VS actually needs to have the assembly in GAC for IntelliSense to work. Luckily, now when the latest version of the library is strong-named, it's possible to add it to GAC. Adding the assembly to GAC shouldn't have any side-effects, but it will need to be added on every developer machine that wants to use see the IntelliSense in Razor files completely (without the squiggly undelines), which can be a hassle.
+When you change the Razor factory, you might experience IntelliSense issues in Visual Studio.
+
+I've investigated this and it looks like **VS actually needs to have the assembly in GAC for IntelliSense to work**. Luckily, now when the latest version of the library is strong-named, it's possible to add it to GAC. Adding the assembly to GAC shouldn't have any side-effects, but it will need to be added on every developer machine that wants to use see the IntelliSense in Razor files completely (without the squiggly undelines), which can be a hassle.
 
 If you want to add the assembly to GAC, you'll need to do the following:
 
 - Open `Developer Command Prompt for VS 2017` (you'll find it in Start menu) **as an Administrator**.
-- Navigate to the folder of the NuGet package: `cd "C:\PATH_TO_YOUR_SOLUTION\packages\RazorHtmlMinifier.Mvc5.1.2.0\lib\net45"`
+- Navigate to the folder of the NuGet package: `cd "C:\PATH_TO_YOUR_SOLUTION\packages\RazorHtmlMinifier.Mvc.5.1.2.0\lib\net45"`
 - Install it to GAC: `gacutil /i RazorHtmlMinifier.Mvc5.dll` (it should respond `Assembly successfully added to the cache`)
 - Restart VS 2017 (and maybe also clear any ReSharper caches if you're using that)
 
-Then it should start working. 
+**Then it should start working.**
 
 There are also other alternative solutions:
 
