@@ -68,7 +68,7 @@ I've investigated this and it looks like **VS actually needs to have the assembl
 If you want to add the assembly to GAC, you'll need to do the following:
 
 - Open `Developer Command Prompt for VS 2017` (you'll find it in Start menu) **as an Administrator**.
-- Navigate to the folder of the NuGet package: `cd "C:\PATH_TO_YOUR_SOLUTION\packages\RazorHtmlMinifier.Mvc.5.1.2.0\lib\net45"`
+- Navigate to the folder of the NuGet package: `cd "C:\PATH_TO_YOUR_SOLUTION\packages\RazorHtmlMinifier.Mvc5.1.2.0\lib\net45"`
 - Install it to GAC: `gacutil /i RazorHtmlMinifier.Mvc5.dll` (it should respond `Assembly successfully added to the cache`)
 - Restart VS 2017 (and maybe also clear any ReSharper caches if you're using that)
 
