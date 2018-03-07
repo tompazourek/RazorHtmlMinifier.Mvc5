@@ -79,4 +79,4 @@ There are also other alternative solutions:
 - Set up the host factory in *Web.config.Release* instead of *Web.config*. That will make the minification run only when the Release configs are applied, and while debugging, you can keep the original host factory, which doesn't have problems with intellisense.
 - Set the host factory in the Web.config file in runtime, e.g. in `Global.asax`. You'd have to use the `WebConfigurationManager` API to modify the Web.config during runtime.
 
-However, I wouldn't recommend either of those (I also haven't tried them), as they feel more like a hack, and might cause more issues if you'd be doing stuff like precompilation of the views. Adding the assembly to GAC is probably the easiest, it's still annoying that VS requires that though...)
+However, I wouldn't recommend either of those (I also haven't tried them), as they feel more like a hack, and might cause more issues if you'd be doing stuff like precompilation of the views. Adding the assembly to GAC is probably the easiest, it's still annoying that VS requires that though...
