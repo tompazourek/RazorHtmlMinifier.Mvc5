@@ -19,7 +19,7 @@ The library is also [published on NuGet.org](https://www.nuget.org/packages/Razo
 PM> Install-Package RazorHtmlMinifier.Mvc5
 ```
 
-<sup>RazorHtmlMinifier.Mvc5 is built for .NET v4.5 with a dependency on ASP.NET MVC 5.2.3.</sup>
+<sup>RazorHtmlMinifier.Mvc5 is built for .NET v4.5 with a dependency on ASP.NET MVC 5.2.3 and `System.Web`.</sup>
 
 ### Configuration
 
@@ -29,7 +29,7 @@ Find the **Web.config** with your Razor configuration (by default it's in `Views
 <host factoryType="System.Web.Mvc.MvcWebRazorHostFactory, System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
 ```
 
-In order to start minifying, replace it with (after the NuGet package is installed):
+In order to start minifying views and partial views, replace it with (after the NuGet package is installed):
 
 ```xml
 <host factoryType="RazorHtmlMinifier.Mvc5.MinifyingMvcWebRazorHostFactory, RazorHtmlMinifier.Mvc5, Version=1.2.0.0, Culture=neutral, PublicKeyToken=a517a17e203fcde4" />
@@ -37,13 +37,28 @@ In order to start minifying, replace it with (after the NuGet package is install
 
 Then rebuild your solution, which should also restart the app.
 
+If you're using Razor `@helper` functions placed inside the `App_Code` folder, you have to do additional configuration in order to minify those. In the root `Web.config`, you should see something like this:
+
+```xml
+<compilation debug="true" targetFramework="4.7.2" />
+```
+
+Your `<compilation>` element might have different attributes. Leave the current attributes as-is, and add `<buildProviders>` like so:
+
+```xml
+<compilation debug="true" targetFramework="4.7.2">
+    <buildProviders>
+        <add extension=".cshtml" type="RazorHtmlMinifier.Mvc5.MinifyingRazorBuildProvider, RazorHtmlMinifier.Mvc5" />
+    </buildProviders>
+</compilation>
+```
 
 How it works
 ------------
 
 The minifier processes the code generated during Razor compilation. Because it runs in compile-time, it shouldn't add any overhead during runtime.
 
-The entire source code is just a [single file](https://github.com/tompazourek/RazorHtmlMinifier.Mvc5/blob/master/src/RazorHtmlMinifier.Mvc5/MinifyingMvcWebRazorHostFactory.cs), feel free to view it.
+The entire source code is just [two](/src/RazorHtmlMinifier.Mvc5/MinifyingMvcWebRazorHostFactory.cs) [files](/src/RazorHtmlMinifier.Mvc5/MinifyingRazorBuildProvider.cs), feel free to view them.
 
 The minification algorithm is fairly trivial. It basically:
 
@@ -67,10 +82,10 @@ I've investigated this and it looks like **VS actually needs to have the assembl
 
 If you want to add the assembly to GAC, you'll need to do the following:
 
-- Open `Developer Command Prompt for VS 2017` (you'll find it in Start menu) **as an Administrator**.
+- Open `Developer Command Prompt for VS` (you'll find it in Start menu) **as an Administrator**.
 - Navigate to the folder of the NuGet package: `cd "C:\PATH_TO_YOUR_SOLUTION\packages\RazorHtmlMinifier.Mvc5.1.2.0\lib\net45"`
 - Install it to GAC: `gacutil /i RazorHtmlMinifier.Mvc5.dll` (it should respond `Assembly successfully added to the cache`)
-- Restart VS 2017 (and maybe also clear any ReSharper caches if you're using that)
+- Restart Visual Studio (and maybe also clear any ReSharper caches if you're using that)
 
 **Then it should start working.**
 
