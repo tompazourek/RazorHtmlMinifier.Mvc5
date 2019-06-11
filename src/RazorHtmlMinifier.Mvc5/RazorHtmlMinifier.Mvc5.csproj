@@ -32,4 +32,8 @@
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
 </Project>
