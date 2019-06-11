@@ -32,7 +32,7 @@ Find the **Web.config** with your Razor configuration (by default it's in `Views
 In order to start minifying views and partial views, replace it with (after the NuGet package is installed):
 
 ```xml
-<host factoryType="RazorHtmlMinifier.Mvc5.MinifyingMvcWebRazorHostFactory, RazorHtmlMinifier.Mvc5, Version=1.2.0.0, Culture=neutral, PublicKeyToken=a517a17e203fcde4" />
+<host factoryType="RazorHtmlMinifier.Mvc5.MinifyingMvcWebRazorHostFactory, RazorHtmlMinifier.Mvc5, Version=1.3.0.0, Culture=neutral, PublicKeyToken=a517a17e203fcde4" />
 ```
 
 Then rebuild your solution, which should also restart the app.
@@ -83,7 +83,7 @@ I've investigated this and it looks like **VS actually needs to have the assembl
 If you want to add the assembly to GAC, you'll need to do the following:
 
 - Open `Developer Command Prompt for VS` (you'll find it in Start menu) **as an Administrator**.
-- Navigate to the folder of the NuGet package: `cd "C:\PATH_TO_YOUR_SOLUTION\packages\RazorHtmlMinifier.Mvc5.1.2.0\lib\net45"`
+- Navigate to the folder of the NuGet package: `cd "C:\PATH_TO_YOUR_SOLUTION\packages\RazorHtmlMinifier.Mvc5.1.3.0\lib\net45"`
 - Install it to GAC: `gacutil /i RazorHtmlMinifier.Mvc5.dll` (it should respond `Assembly successfully added to the cache`)
 - Restart Visual Studio (and maybe also clear any ReSharper caches if you're using that)
 
