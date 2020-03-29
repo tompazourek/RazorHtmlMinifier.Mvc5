@@ -18,4 +18,4 @@ build:
   verbosity: minimal
 
 artifacts:
-  - path: ./**/*.nupkg
+  - path: ./src/**/*.nupkg
