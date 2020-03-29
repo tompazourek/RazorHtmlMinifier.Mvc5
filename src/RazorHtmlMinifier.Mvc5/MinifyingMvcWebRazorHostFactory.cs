@@ -11,8 +11,10 @@ using System.Web.WebPages.Razor;
 
 namespace RazorHtmlMinifier.Mvc5
 {
+    /// <inherit/>
     public class MinifyingMvcWebRazorHostFactory : MvcWebRazorHostFactory
     {
+        /// <inherit/>
         public override WebPageRazorHost CreateHost(string virtualPath, string physicalPath)
         {
             var host = base.CreateHost(virtualPath, physicalPath);

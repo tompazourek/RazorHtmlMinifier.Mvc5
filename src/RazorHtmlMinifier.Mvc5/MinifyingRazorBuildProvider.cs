@@ -3,8 +3,10 @@ using System.Web.WebPages.Razor;
 
 namespace RazorHtmlMinifier.Mvc5
 {
+    /// <inherit/>
     public class MinifyingRazorBuildProvider : RazorBuildProvider
     {
+        /// <inherit/>
         protected override WebPageRazorHost GetHostFromConfig()
         {
             var host = base.GetHostFromConfig();
