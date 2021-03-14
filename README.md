@@ -1,8 +1,9 @@
 ![RazorHtmlMinifier.Mvc5 logo](https://raw.githubusercontent.com/tompazourek/RazorHtmlMinifier.Mvc5/master/assets/logo_32.png) RazorHtmlMinifier.Mvc5
 ======================
 
-[![Build status](https://img.shields.io/appveyor/ci/tompazourek/razorhtmlminifier-mvc5.svg)](https://ci.appveyor.com/project/tompazourek/razorhtmlminifier-mvc5)
-[![NuGet downloads](https://img.shields.io/nuget/dt/RazorhtMlminIfier.mvc5.svg)](https://www.nuget.org/packages/RazorhtMlminIfier.mvc5/)
+[![Build status](https://img.shields.io/appveyor/ci/tompazourek/razorhtmlminifier-mvc5/master.svg)](https://ci.appveyor.com/project/tompazourek/razorhtmlminifier-mvc5)
+[![NuGet version](https://img.shields.io/nuget/v/RazorHtmlMinifier.Mvc5.svg)](https://www.nuget.org/packages/RazorHtmlMinifier.Mvc5/)
+[![NuGet downloads](https://img.shields.io/nuget/dt/RazorHtmlMinifier.Mvc5.svg)](https://www.nuget.org/packages/RazorHtmlMinifier.Mvc5/)
 
 *Trivial compile-time Razor HTML Minifier for ASP.NET MVC 5.*
 
