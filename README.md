@@ -20,20 +20,20 @@ The library is also [published on NuGet.org](https://www.nuget.org/packages/Razo
 PM> Install-Package RazorHtmlMinifier.Mvc5
 ```
 
-<sup>RazorHtmlMinifier.Mvc5 is built for .NET v4.5 with a dependency on ASP.NET MVC 5.2.3 and `System.Web`.</sup>
+<sup>RazorHtmlMinifier.Mvc5 is built for .NET v4.8 with a dependency on ASP.NET MVC 5.2.7 and `System.Web`.</sup>
 
 ### Configuration
 
 Find the **Web.config** with your Razor configuration (by default it's in `Views/Web.config`). You should see something like this inside:
 
 ```xml
-<host factoryType="System.Web.Mvc.MvcWebRazorHostFactory, System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+<host factoryType="System.Web.Mvc.MvcWebRazorHostFactory, System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
 ```
 
 In order to start minifying views and partial views, replace it with (after the NuGet package is installed):
 
 ```xml
-<host factoryType="RazorHtmlMinifier.Mvc5.MinifyingMvcWebRazorHostFactory, RazorHtmlMinifier.Mvc5, Version=1.3.0.0, Culture=neutral, PublicKeyToken=a517a17e203fcde4" />
+<host factoryType="RazorHtmlMinifier.Mvc5.MinifyingMvcWebRazorHostFactory, RazorHtmlMinifier.Mvc5, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a517a17e203fcde4" />
 ```
 
 Then rebuild your solution, which should also restart the app.
@@ -41,13 +41,13 @@ Then rebuild your solution, which should also restart the app.
 If you're using Razor `@helper` functions placed inside the `App_Code` folder, you have to do additional configuration in order to minify those. In the root `Web.config`, you should see something like this:
 
 ```xml
-<compilation debug="true" targetFramework="4.7.2" />
+<compilation debug="true" targetFramework="4.8" />
 ```
 
 Your `<compilation>` element might have different attributes. Leave the current attributes as-is, and add `<buildProviders>` like so:
 
 ```xml
-<compilation debug="true" targetFramework="4.7.2">
+<compilation debug="true" targetFramework="4.8">
     <buildProviders>
         <add extension=".cshtml" type="RazorHtmlMinifier.Mvc5.MinifyingRazorBuildProvider, RazorHtmlMinifier.Mvc5" />
     </buildProviders>
