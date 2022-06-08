@@ -20,14 +20,14 @@ The library is also [published on NuGet.org](https://www.nuget.org/packages/Razo
 PM> Install-Package RazorHtmlMinifier.Mvc5
 ```
 
-<sup>RazorHtmlMinifier.Mvc5 is built for .NET v4.8 with a dependency on ASP.NET MVC 5.2.7 and `System.Web`.</sup>
+<sup>RazorHtmlMinifier.Mvc5 is built for .NET v4.8 with a dependency on ASP.NET MVC 5.2.9 and `System.Web`.</sup>
 
 ### Configuration
 
 Find the **Web.config** with your Razor configuration (by default it's in `Views/Web.config`). You should see something like this inside:
 
 ```xml
-<host factoryType="System.Web.Mvc.MvcWebRazorHostFactory, System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+<host factoryType="System.Web.Mvc.MvcWebRazorHostFactory, System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
 ```
 
 In order to start minifying views and partial views, replace it with (after the NuGet package is installed):
